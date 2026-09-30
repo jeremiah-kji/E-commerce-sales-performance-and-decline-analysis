@@ -103,6 +103,30 @@ This indicates that the business experienced a decline in order volume but an in
 
 ---
 
+### Product Performance
+
+The analysis identified **11 products** whose quantity sold declined from Stage A to Stage B.
+
+| Product                | Stage A Quantity | Stage B Quantity |
+| ---------------------- | ---------------: | ---------------: |
+| Smartphone Case        |                4 |                0 |
+| Instant Noodles Carton |                5 |                0 |
+| Milk Powder Tin        |                4 |                3 |
+| Perfume 50ml           |                4 |                2 |
+| Bedsheet Set           |                3 |                0 |
+| Blender                |                3 |                2 |
+| Spaghetti Pack         |                4 |                3 |
+| Wireless Earbuds       |                5 |                2 |
+| Power Bank 10000mAh    |                7 |                3 |
+| Table Lamp             |                4 |                0 |
+| USB-C Cable            |                6 |                3 |
+
+Several products recorded **zero sales in Stage B**, including Smartphone Case, Instant Noodles Carton, Bedsheet Set, and Table Lamp.
+
+The largest decline in absolute quantity was recorded by the **Power Bank 10000mAh**, which decreased from 7 units to 3 units.
+
+---
+
 ## Category Performance
 
 Revenue changed differently across product categories.
@@ -121,27 +145,31 @@ Beauty was the only category where order volume increased according to the analy
 
 ---
 
-## Customer Behavior
+### City Performance
 
-Customer-level analysis showed mixed behavior between the two periods.
+City-level analysis showed that performance varied considerably across locations.
 
-| Customer Behavior | Number of Customers |
-| ----------------- | ------------------: |
-| Increased Orders  |                   8 |
-| Decreased Orders  |                   9 |
-| Unchanged         |                   3 |
-| Total             |                  20 |
+| City          | Stage A Revenue | Stage B Revenue | Stage A Orders | Stage B Orders | Revenue Change | Order Change |
+| ------------- | --------------: | --------------: | -------------: | -------------: | -------------: | -----------: |
+| Port Harcourt |        ₦118,000 |        ₦155,700 |              7 |              8 |       +₦37,700 |           +1 |
+| Kano          |        ₦107,000 |        ₦125,400 |              8 |              7 |       +₦18,400 |           -1 |
+| Benin City    |         ₦50,900 |         ₦45,800 |              5 |              2 |        -₦5,100 |           -3 |
+| Lagos         |        ₦165,400 |        ₦166,500 |              8 |              6 |        +₦1,100 |           -2 |
+| Enugu         |         ₦86,000 |        ₦197,500 |              7 |              5 |      +₦111,500 |           -2 |
+| Abuja         |        ₦184,100 |        ₦226,800 |             11 |             14 |       +₦42,700 |           +3 |
+| Ibadan        |              ₦0 |         ₦18,000 |              0 |              1 |       +₦18,000 |           +1 |
 
-The results show that customer behavior was not uniform: some customers increased their purchasing activity while others reduced theirs.
+The largest revenue increase occurred in **Enugu**, where revenue increased by ₦111,500 despite a decrease in order count.
 
-There were also **18 active customers in Stage B**, consisting of:
+**Abuja** recorded the largest increase in order volume, rising from 11 to 14 orders.
 
-* 6 one-time customers
-* 12 returning customers
+**Benin City** recorded the largest decline in order volume, decreasing from 5 to 2 orders.
+
+The city-level results show that changes in revenue did not always move in the same direction as changes in order volume.
 
 ---
 
-## Monthly Trend
+### Monthly Trend
 
 Monthly analysis of Stage B showed that:
 
@@ -150,21 +178,70 @@ Monthly analysis of Stage B showed that:
 * Orders decreased by 1 from May to June.
 * Orders decreased by 6 from June to July.
 
+| Month | Orders | Change from Previous Month |
+| ----- | -----: | -------------------------: |
+| May   |     17 |                          — |
+| June  |     16 |                         -1 |
+| July  |     10 |                         -6 |
+
 The `LAG()` window function was used to calculate month-to-month changes.
+
+The results show a continued decline in monthly order volume throughout Stage B, with the largest month-to-month decrease occurring between June and July.
+
+
+---
+
+### Customer Behavior
+
+Customer-level analysis showed mixed changes in ordering behavior between Stage A and Stage B.
+
+| Customer Behavior | Customers | Stage A Orders | Stage B Orders | Change |
+| ----------------- | --------: | -------------: | -------------: | -----: |
+| Increased         |         8 |             12 |             25 |    +13 |
+| Decreased         |         9 |             30 |             14 |    -16 |
+| Unchanged         |         3 |              4 |              4 |      0 |
+| **Total**         |    **20** |         **46** |         **43** | **-3** |
+
+Nine customers decreased their ordering activity, while eight customers increased theirs. Three customers maintained the same number of orders across both periods.
+
+The decrease among customers who reduced their ordering activity was larger than the increase among customers who increased their activity, contributing to the overall decline from 46 to 43 orders.
+
+This shows that the overall order decline was driven by a combination of different customer-level behaviors rather than every customer reducing their purchases.
+
+---
+
+### Returning vs One-Time Customers
+
+Customer ordering patterns were also classified as either returning or one-time customers in each analysis period.
+
+| Period  | Customer Type | Number of Customers |
+| ------- | ------------- | ------------------: |
+| Stage A | Returning     |                  15 |
+| Stage A | One-time      |                   3 |
+| Stage B | Returning     |                  12 |
+| Stage B | One-time      |                   6 |
+
+The number of returning customers decreased from **15 in Stage A to 12 in Stage B**, while one-time customers increased from **3 to 6**.
+
+This indicates a shift in the composition of customers between the two periods, with fewer customers making multiple orders and more customers making only one order during Stage B.
 
 ---
 
 ## Business Insights
 
-The analysis suggests that the statement that the business was simply "not performing as well" requires further investigation.
+The analysis shows that overall business performance changed in different ways between the two periods.
 
-Although order volume declined slightly, revenue increased substantially.
+* **Order volume declined slightly**, from 46 orders in Stage A to 43 orders in Stage B.
+* **Revenue increased substantially**, from ₦711,400 to ₦935,700.
+* **11 products experienced a decline in quantity sold**, with several recording zero sales in Stage B.
+* **Category performance varied considerably**, with Fashion and Beauty showing revenue growth while Electronics, Groceries, and Home declined.
+* **City-level performance was mixed**, with some cities increasing revenue despite recording fewer orders.
+* **Monthly order volume declined throughout Stage B**, with the largest decrease occurring between June and July.
+* **Customer behavior was mixed**, with 8 customers increasing their order activity, 9 decreasing, and 3 remaining unchanged.
+* **Returning customers decreased from 15 to 12**, while one-time customers increased from 3 to 6.
 
-The difference between revenue and order trends suggests that changes in product mix, pricing, or purchasing quantities may have contributed to the increase in revenue.
+These findings show that the change in business performance cannot be explained by order volume alone. Revenue, product performance, customer behavior, location, and monthly trends all provide different perspectives on the business.
 
-Customer behavior was also mixed, with both increases and decreases in individual ordering activity.
-
-Further analysis would be required to determine the specific factors responsible for the changes.
 
 ---
 
@@ -188,27 +265,33 @@ e-commerce-sales-performance-and-decline-analysis
 
 ## Skills Demonstrated
 
-This project demonstrates practical use of SQL for:
+This project demonstrates practical skills in:
 
-* Data exploration
-* Sales performance analysis
-* Revenue analysis
+* SQL data analysis
+* Data exploration and aggregation
+* Sales and revenue analysis
 * Customer behavior analysis
 * Trend analysis
 * Comparative analysis
-* Business problem solving
-* Translating business questions into SQL queries
+* Using CTEs and window functions
+* Translating business questions into analytical queries
+* Interpreting query results to identify business insights
+* Communicating analytical findings clearly
+
 
 ---
 
 ## Future Analysis
 
-Potential next steps include:
+The current analysis provides a high-level view of the changes between the two periods. Further analysis could explore:
 
-* Investigating why revenue increased despite lower order volume
-* Analyzing average order value
-* Investigating product-level revenue changes
-* Examining customer retention
-* Identifying high-value customers
-* Investigating city-level performance in greater detail
-* Exploring factors behind the decline in July orders
+* Average order value and revenue per order
+* Product-level revenue changes
+* Customer retention and repeat purchase patterns
+* High-value customers and their contribution to revenue
+* The relationship between order quantity and revenue
+* Factors behind the decline in July orders
+* More detailed analysis of city-level performance
+* Potential reasons for the shift from returning to one-time customers
+
+These additional analyses could provide deeper insight into the factors associated with the observed changes in business performance.
